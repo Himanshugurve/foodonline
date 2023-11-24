@@ -48,7 +48,7 @@ class User(AbstractBaseUser):
     CUSTOMER=2
 
     ROLE_CHOICE={
-        (VENDOR, 'vendor'),
+        (VENDOR, 'Vendor'),
         (CUSTOMER,'Customer'),
     }
     first_name=models.CharField(max_length=50)
@@ -65,6 +65,7 @@ class User(AbstractBaseUser):
     modified_date=models.DateTimeField(auto_now=True)
     is_admin=models.BooleanField(default=False)
     is_staff=models.BooleanField(default=False)
+    is_active=models.BooleanField(default=False)
     is_superadmin=models.BooleanField(default=False)
 
 
@@ -83,10 +84,20 @@ class User(AbstractBaseUser):
     def has_module_perms(self,app_label):
         return True
 
+    def get_role(self):
+        # user_role = None
+        if self.role==1:
+            user_role='Vendor'
+        elif self.role==2:
+            user_role='Customer'
+        # else:
+            # user_role='undefined'
+        return user_role
+
 
     #required fields are
 
-    date_joined=models.DateTimeField(auto_now_add=True)
+    # date_joined=models.DateTimeField(auto_now_add=True)
 
 
 class UserProfile(models.Model):
