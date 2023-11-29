@@ -1,0 +1,7 @@
+{% autoescape off %}
+hii{{user.first_name}},
+please click on below link for confirmation
+http://{{domain}}{% url 'activate' uidb64-uid token-token %}
+
+
+{% endautoescape %}
