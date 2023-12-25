@@ -19,6 +19,7 @@
                             <!-- My Restaurants Form Start -->
                             <h5 class="text-uppercase">Build Your Food Menu</h1>
                             <hr>
+                            <button class="btn btn-secondary" onclick="history.back()"><i class="fa fa-angle-left" aria-hidden="true"></i> Back</button>
                             <h6>Modify Category</h6>
                             <form action="{% url 'edit_category' category.id %}" method="POST">
                                 {% csrf_token%}
@@ -49,6 +50,7 @@
                                 <button type="submit" class="btn btn-info">Create
                                     <i class="fa fa-check" aria-hidden="true"></i>
                                 </button>
+                                <a href="{% url 'delete_category' category.id %}" onclick="return confirm ('Are you want to delete!')" class="btn btn-danger">Delete<i class="fa fa-trash" area-hidden="true"></i></a
                             </form>
                           
                               <!-- <hr> -->

@@ -46,7 +46,7 @@ def registerUser(request):
             user.role=User.CUSTOMER
             user.save()
             # send verification  email
-            # send_verification_email=(request,user)
+            send_verification_email=(request,user)
 
             messages.success(request,"Your account have been registered successfully")
             return redirect('registerUser')
@@ -76,7 +76,7 @@ def registerVendor(request):
             user.save()
 
             # send_verification_email
-            # send_verification_email(request,user)
+            send_verification_email=(request,user)
             vendor=v_form.save(commit=False)
             vendor.user=user
             user_profile=UserProfile.objects.get(user=user)
@@ -97,7 +97,8 @@ def registerVendor(request):
     }
     return render(request, 'accounts/registerVendor.html',context)
 
-# def activate(request,uidb64,token):
+def activate(request,uidb64,token):
+    pass
 #     try:
 #         uid=urlsafe_base64_decode(uidb64).decode()
 #         user=User_default_manager.get(pk=uid)

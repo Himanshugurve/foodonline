@@ -11,7 +11,7 @@ urlpatterns=[
     path('myAccount/',views.myAccount,name='myAccount'),
     path('custDashboard',views.custDashboard,name='custDashboard'),
     path('vendorDashboard',views.vendorDashboard,name='vendorDashboard'),
-    path('vendor/', include('vendor.urls'))
-    # path('activate/<uidb64>/<token>/',views.activate,name='activate')
+    path('vendor/', include('vendor.urls')),
+    path('activate/<uidb64>/<token>/',views.activate,name='activate')
 
 ]

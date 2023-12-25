@@ -9,9 +9,19 @@ urlpatterns=[
    path('profile/',views.vprofile,name='vprofile'),
    path('menu-builder/',views.menu_builder,name='menu-builder'),
    path('menu-builder/category/<int:pk>/',views.fooditems_by_category,name="fooditems_by_category"),
+
+   #category CRUD
    path('menu-builder/category/add/',views.add_category,name='add_category'),
    path('menu-builder/category/edit/<int:pk>/',views.edit_category,name='edit_category'),
-   path('menu-builder/category/delete/<int:pk>/',views.delete_category,name='delete_category')
+   path('menu-builder/category/delete/<int:pk>/',views.delete_category,name='delete_category'),
     # path('activate/<uidb64>/<token>/',views.activate,name='activate')
+
+    # FoodItem CRUD
+   path('menu-builder/food/add/',views.add_food,name='add_food'),
+   path('menu-builder/food/edit/<int:pk>/',views.edit_food,name='edit_food'),
+   path('menu-builder/food/delete/<int:pk>/',views.delete_food,name='delete_food')
+
+
+
 
 ]
